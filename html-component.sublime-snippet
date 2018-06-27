@@ -1,0 +1,35 @@
+<snippet>
+  <content><![CDATA[
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="${1:tag-name}">
+  <template>
+    <style include="shared-styles granite-bootstrap">
+    </style>
+  </template>
+
+  <script>
+    class ${2:tagName} extends Polymer.Element {
+      static get is() { return '${1:tag-name}'; }
+      static get properties() {
+        return {
+          pageLocale: {
+            type: String,
+            value: 'zh-TW'
+          },
+          pageLang: {
+              type: Object
+          }
+        }
+      }
+    }
+    window.customElements.define(${2:tagName}.is, ${2:tagName});
+  </script>
+</dom-module>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>component</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>text.html</scope>
+</snippet>
