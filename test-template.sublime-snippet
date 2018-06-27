@@ -1,0 +1,28 @@
+<snippet>
+  <content><![CDATA[
+
+'use strict';
+
+const expect = require('chai').expect;
+const ${1:subject} = require('../${1:subject}');
+
+describe('subject', function() {
+  let dummy;
+  beforeEach(async () => {
+    dummy = {
+      text: 'testing'
+    };
+  });
+
+  it('should do something', async () => {
+    expect(dummy.text).to.equal('testing');
+  })
+
+});
+
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <!-- <tabTrigger>hello</tabTrigger> -->
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>
