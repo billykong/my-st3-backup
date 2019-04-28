@@ -1,0 +1,15 @@
+<snippet>
+  <content><![CDATA[
+LogGroup:
+  Type: 'AWS::Logs::LogGroup'
+  Properties:
+    LogGroupName: !Join 
+        - '-'
+        - - /aws/lambda/${1:log-group-name}
+          - !Ref Stage
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>log-group</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.yaml</scope>
+</snippet>

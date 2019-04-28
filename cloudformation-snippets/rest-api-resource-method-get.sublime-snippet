@@ -1,0 +1,35 @@
+<snippet>
+  <content><![CDATA[
+ApiGatewayMethodGet:
+    Type: 'AWS::ApiGateway::Method'
+    Properties:
+      HttpMethod: GET
+      RequestParameters: { 
+        method.request.querystring.example_id: false
+      }
+      ResourceId: !Ref ${1:rest-api-resource-resource}
+      RestApiId: !Ref ${2:rest-api-resource}
+      ApiKeyRequired: false
+      AuthorizationType: NONE
+      Integration:
+        IntegrationHttpMethod: POST
+        Type: AWS_PROXY
+        RequestParameters: { 
+          integration.request.querystring.example_id: method.request.querystring.example_id,
+        }
+        Uri: !Join 
+          - ''
+          - - 'arn:aws:apigateway:'
+            - !Ref 'AWS::Region'
+            - ':lambda:path/2015-03-31/functions/'
+            - !GetAtt 
+              - ${3:lambda-function-resource}
+              - Arn
+            - /invocations
+      MethodResponses: []
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>rest-api-resource-method-get</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.yaml</scope>
+</snippet>

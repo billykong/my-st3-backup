@@ -1,0 +1,29 @@
+<snippet>
+  <content><![CDATA[
+LambdaFunction:
+  Type: 'AWS::Lambda::Function'
+  Properties:
+    Code:
+      S3Bucket: ${1:bucket}
+      S3Key: >-
+        ${2:key}.zip
+    FunctionName: !Join 
+      - '-'
+      - - ${3:function-name}
+        - !Ref Stage
+    Handler: handler.receiveEvent
+    MemorySize: 128
+    Role: !GetAtt 
+      - LambdaExecutionRole
+      - Arn
+    Runtime: nodejs8.10
+    Timeout: 6
+  DependsOn:
+    - LogGroup
+    - LambdaExecutionRole
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>lambda</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.yaml</scope>
+</snippet>

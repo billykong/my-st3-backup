@@ -1,0 +1,16 @@
+<snippet>
+  <content><![CDATA[
+ApiGatewayResource:
+  Type: 'AWS::ApiGateway::Resource'
+  Properties:
+    ParentId: !GetAtt 
+      - ${1:rest-api-resource} # it could also be parent resource
+      - RootResourceId
+    PathPart: ${2:resource-path-part}
+    RestApiId: !Ref ${1:rest-api-resource}
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>rest-api-resource</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.yaml</scope>
+</snippet>

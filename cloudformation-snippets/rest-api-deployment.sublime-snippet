@@ -1,0 +1,15 @@
+<snippet>
+  <content><![CDATA[
+ApiGatewayDeployment:
+  Type: 'AWS::ApiGateway::Deployment'
+  Properties:
+    RestApiId: !Ref ${1:rest-api-resource}
+    StageName: !Ref Stage
+  DependsOn:
+    - ${2:rest-api-depending-methods}
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>rest-api-deployment</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.yaml</scope>
+</snippet>
